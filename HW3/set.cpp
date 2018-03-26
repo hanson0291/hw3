@@ -90,7 +90,7 @@ void Set::print(){
 
 			//cout << "list = " <<list << endl;
 }
-
+bool sortingfunction(int i,int j) { return (i<j); }
 
 int main() {
 
@@ -157,10 +157,13 @@ List List1, List2;
 
 			if(value == 1){
 				cout << "set elements(" << LL1size << "): ";
+				
 				for(int i = 0; i < value;i++){
-					//cout << List1.at(i);
-					List1.at(i);
+					cout << List1.at(i);
+					//List1.at(i);
+					
 				}
+				
 			}
 			else if(value == 2){
 				cout << "set elements(" << LL2size << "): " << input2;
@@ -172,18 +175,59 @@ List List1, List2;
 
 		if(input3 == "union"){
 
-			int temp;
+			int node;
+			List List3;
 
-			//for(int i=0;i<input.length();i++){
-			//	for(int j=0;j<input2.length();j++){
-			//		if(input)
-			//	}
-			//}
-
-			cout << "Union: ";
+		for(int i = 0; listcopy.length() > 0; i++){
+			//node = listcopy.substr(0);
+			istringstream ss(listcopy);
+			ss >> node;
+			List3.addToTail(node);
+			listcopy.erase(0,1);
 		}
-		if(input3 == "remove")
-			cout << "remove condition" << endl;
+		for(int i = 0; listcopy2.length() > 0; i++){
+			istringstream ss(listcopy2);
+			ss >> node2;
+			List3.addToTail(node2);
+			listcopy2.erase(0,1);
+		}
+			//sort(List3.begin(), List3.end());
+
+			cout << "Union: " << input << " " << input2;
+
+		}
+		if(input3.rfind("remove", 0) == 0){
+			input3.erase(0,7);
+			int value = 0;
+			istringstream ss(input3);
+			ss >> value;
+
+			//cout << "value = " << value << endl;
+			if(value == 1){
+				int set;
+				input3.erase(0,2);
+				istringstream ss(input3);
+				ss >> set;
+				cout << "set = " << set << endl;
+				List1.addToTail(set);
+				LL1size + 1;
+
+			}
+			else if(value == 2){
+				int set;
+				input3.erase(0,2);
+				istringstream ss(input3);
+				ss >> set;
+				cout << "set = " << set << endl;
+				List2.addToTail(set);
+				LL2size + 1;
+			}
+			else if(value != 1 && value != 2){
+				cout << "ERROR!";
+
+			}
+		}
+			
 
 		if(input3.rfind("add", 0) == 0){
 		//invoke on specified set passing index as parameter, print true or false based on result.
@@ -202,8 +246,6 @@ List List1, List2;
 				List1.addToTail(set);
 				LL1size + 1;
 
-				//cout << "set = " << set << endl;
-
 			}
 			else if(value == 2){
 				int set;
@@ -214,23 +256,55 @@ List List1, List2;
 				List2.addToTail(set);
 				LL2size + 1;
 			}
-			else if(value != 1 && value != 2)
+			else if(value != 1 && value != 2){
 				cout << "ERROR!";
 
+			}
 		}
-		
 
 
 
-		if(input3 == "subtraction")
-			cout << "subtraction!"<<endl;
+		if(input3 == "subtraction"){
+			//input3.erase(0,12);
+			//int value = 0;
+			//istringstream ss(input3);
+			//ss >> value;
+
+			//cout << "value = " << value << endl;
+			//if(value == 1){
+			//	int set;
+			//	input3.erase(0,2);
+			//	istringstream ss(input3);
+			//	ss >> set;
+			//	cout << "set = " << set << endl;
+			//	List1.addToTail(set);
+			//	LL1size + 1;
+
+			//}
+			//else if(value == 2){
+			//	int set;
+			//	input3.erase(0,2);
+			//	istringstream ss(input3);
+			//	ss >> set;
+			//	cout << "set = " << set << endl;
+			//	List2.addToTail(set);
+			//	LL2size + 1;
+			//}
+			//else if(value != 1 && value != 2){
+			//	cout << "ERROR!";
+			int fs, sf;
+			cout << "First - Second: ";
+			cin >> fs;
+			cout << "Second - First: ";
+			cin >> sf;
+			
+			}
+
 		cout << endl;
 	};
 	
 	return 0;
 }
-
-
 
 /* 
 

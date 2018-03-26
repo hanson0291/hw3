@@ -197,14 +197,16 @@ int List::at(int index)
 	// returns int value contained at the node of specified index. Exit program if invalid
 	int count;
 	ListNode* current = head;
-
+	
 	while(current != NULL){
+		//cout << "current = " << current << endl;   = 0x10724385
+		
 			if (count == index)
         		return(current->data);
     		count++;
     		current = current->next;
-
-			//cout << "current" << current << endl;
+			
+			cout << "current" << current << endl;
 			cout << "data = " << current->data << endl;
 	}
 	//return count;
