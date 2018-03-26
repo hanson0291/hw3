@@ -220,9 +220,12 @@ int valueOf(const ListNode* elem)
 const ListNode* List::getNext(const ListNode* node)
 {
 	// TODO: imoplement getNext
+
+	return node->next;
 }
 
 const ListNode* List::getPrevious(const ListNode* node)
 {
 	// TODO: implement getPrevious
+	return node->prev;
 }
