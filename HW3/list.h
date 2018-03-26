@@ -67,6 +67,9 @@ List::~List()
 
 bool List::contains(int value)
 {
+//Returns a boolean value representing if the provided int value is contained
+//in the list
+
 	ListNode *temp = head;
 	while (temp != NULL && temp->data != value)
 		temp = temp->next;
@@ -150,35 +153,29 @@ bool exit;
     int currentIndex = 0;
 
     while ( pCur ) {
-        // loop to reach index
+
         if (currentIndex == index) {
             break;
         }
 
-        // Increment currentIndex and pCur to the next item
         currentIndex++;
         pPre = pCur;
         pCur = pCur -> next;
     }
 
-    // If pCur is still valid at this point, it means we broke at the
-    // proper place and pCur should be at the proper index.
     if ( pCur ) {
         if ( pPre ) {
             pPre -> next = pCur -> next;
             delete pCur;
-            //head.count--;
-            exit = true; // return true if successful
+            exit = true; 
         } else {
-            //head.headPtr = pCur -> next;
             	head = pCur->next;
 			delete pCur;
-            	//head.count--;
-            	exit = true; // return true if successful
+            	exit = true; 
         }
     }
     else
-        exit = false; // return false if unsuccessful
+        exit = false; 
 
     return exit;	
 

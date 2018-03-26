@@ -194,7 +194,11 @@ List List1, List2;
 			//sort(List3.begin(), List3.end());
 
 			cout << "Union: " << input << " " << input2;
-
+			cout << endl << "Union: ";
+			
+			for(int i = 0; i < (input.length() + input2.length()); i++){
+				cout << List3.at(i);
+			}
 		}
 		if(input3.rfind("remove", 0) == 0){
 			input3.erase(0,7);
