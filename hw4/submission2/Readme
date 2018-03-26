@@ -1,0 +1,33 @@
+// Name: Andrew Hanson
+// Email: awh5563@psu.edu
+// Student ID: 953406579
+// Class: CMPSC 122, section 001
+// Program 4.2
+// Due Date: October 25, 2017
+//
+// Description: This programn implements my own DLList Abstract Data Type (ADT).
+// All of the methods from the header file DLList.h have been implemented.
+
+
+
+
+
+// The following command compiles the given test list with my DLList
+g++ -ansi -pedantic -Wall testlist.cxx DLList.cxx -o testlist 
+
+// The following command executes testlist
+./testlist
+
+
+
+// The following command compiles my radixsort with my DLList
+g++ -ansi -pedantic -Wall radixsort.cx DLList.cxx -o radixsort
+
+// The following command executes radixsort
+./radixsort
+
+
+
+
+
+
