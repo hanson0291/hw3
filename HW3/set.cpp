@@ -20,6 +20,10 @@
 #include <cstdlib>
 #include <cmath>
 #include <algorithm>
+#include <iterator>
+#include <list>
+#include <functional>
+
 
 using namespace std;
 
@@ -35,6 +39,7 @@ public:
  	
 	// returns a boolean value reping if provided int is contained in list
 	bool contains(int value);
+	
 	// returns bool reping if provided int was successfully added to list. Sets intended to contain 
 	// distinct value, do not lalow duplicate values to be added. If list already contains supplied
 	// value, return false
@@ -50,44 +55,94 @@ public:
 	int size() { return set_size; }
 };
 Set::Set(){
-
+	// Default Constructor, initializes list and set_size.
 }
 Set::~Set(){
+	// Destructor, assigns 0 to set_size and calls delete on list
 
+	set_size = 0;
+	delete [] list;
 }
+
 bool Set::contains(int value){
 
 }
 bool Set::add(int value){
+	// CALLED BY UNION
+
+
 
 }
 bool Set::remove(int value){
-
+	// 
 }
 void Set::clear(){
 
 }
 Set* Set::set_union(Set&){
+	// set_union : Creates and returns a Set pointer that contains the set union of the
+	// invoking Set object and a second Set object passed into the function.
+
 
 }
 Set* Set::intersection(Set&){
+	// Creates and returns a Set pointer that contains the set intersection of the
+	// invoking Set object and a second Set object passed into the function.
+
 
 }
 Set* Set::difference(Set&){
+	// Creates and returns a Set pointer containing set difference between
+	// invoking Set object and a second Set object passed into the function. The
+	// invoking Set object should be considered the set that is being subtracted from 
+	
+	// (Invoking Set – Parameter Set).
+
 
 }
 void Set::print(){
-			//List *tmp = list;
-    
-			//if (tmp != NULL) {
-        	//	do {
-            //		if (tmp != NULL) {
-            //    		//cout << tmp->getData() << " -> ";
-            //    		tmp = tmp->getNext();
-            //		}
-        	//	} while (tmp != NULL);
-    		//}
+	// set contents(<size>) element0 element1 element2
 
+			List *tmp = list;
+			ListNode* tmp2;
+			//tmp = tmp2.head;
+			//tmp->head = tmp2;
+			//tmp2 = tmp.head;
+			//tmp2 = tmp->head;
+			
+
+
+			
+			
+
+cout << "\n\nNOT CRASHED YET!\n\n" << endl;
+
+			//list->valueOf(const ListNode* )
+			//list->valueOf(head);
+			//list.valueOf(head);
+			//list->valueOf(tmp2->(tmp->head));
+			//list->valueOf(tmp2->head)
+
+			//list->getHead();
+
+			// next is private so you must use "const ListNode* List::getNext(const ListNode* node)"
+			
+			//const ListNode* tmp2;
+			//tmp->getNext(tmp2);
+			//list->valueOf(tmp2);
+
+			//if (tmp != NULL) {
+
+				//cout << endl << "tmp != NULL Loop entered!" << endl;
+                	//cout << tmp->getData() << " -> ";
+                	//tmp = tmp->getNext(ListNode* node);
+
+				//for(int i = 0; tmp != NULL; i++){
+					//cout << tmp->valueOf(list) << " -> ";
+				//}
+				//list->getNext(tmp2);
+    		//}
+	
 			//cout << "list = " <<list << endl;
 }
 bool sortingfunction(int i,int j) { return (i<j); }
@@ -99,6 +154,7 @@ string input, input2, startsize1, startsize2, input3;
 //char input;
 
 List List1, List2;
+Set Set1, Set2;
 
 	cout << "Enter starting size of Set #1: ";
 	getline(cin, startsize1);
@@ -158,10 +214,17 @@ List List1, List2;
 			if(value == 1){
 				cout << "set elements(" << LL1size << "): ";
 				
+				// MAKE THIS WORK!
+
 				for(int i = 0; i < value;i++){
 					cout << List1.at(i);
-					//List1.at(i);
 					
+					// THESE USE THE LIST CLASS OBJECT WHICH IS WRONG
+					//List1.at(i);
+					//List1.valueOf(ListNode* i)
+
+					Set1.print();
+
 				}
 				
 			}
@@ -173,34 +236,48 @@ List List1, List2;
 			//Vector.at(value, Vector);
 		}
 
-		if(input3 == "union"){
-
+		else if(input3 == "union"){
+				// 2 for loops, 
+				 Set *ns = new Set();
+				// for(e in s1){ns->add(e)}
+				// for (e in s2){ns->add(e)}
+				// USE UNIQUE
 			int node;
 			List List3;
 
-		for(int i = 0; listcopy.length() > 0; i++){
-			//node = listcopy.substr(0);
-			istringstream ss(listcopy);
-			ss >> node;
-			List3.addToTail(node);
-			listcopy.erase(0,1);
-		}
-		for(int i = 0; listcopy2.length() > 0; i++){
-			istringstream ss(listcopy2);
-			ss >> node2;
-			List3.addToTail(node2);
-			listcopy2.erase(0,1);
-		}
-			//sort(List3.begin(), List3.end());
-
+			for(int i = 0; listcopy.length() > 0; i++){
+				//node = listcopy.substr(0);
+				istringstream ss(listcopy);
+				ss >> node;
+				List3.addToTail(node);
+				listcopy.erase(0,1);
+			}
+			for(int i = 0; listcopy2.length() > 0; i++){
+				istringstream ss(listcopy2);
+				ss >> node2;
+				List3.addToTail(node2);
+				listcopy2.erase(0,1);
+			}
+			//sort(List3.begin(), List3.end())
 			cout << "Union: " << input << " " << input2;
+
 			cout << endl << "Union: ";
-			
 			for(int i = 0; i < (input.length() + input2.length()); i++){
 				cout << List3.at(i);
+				//cout << List3.valueOf(i);
 			}
+
+			//cout << "Union: ";
+			//sort(begin(List3.getHead()), end(List3));
+			//sort(begin(List3.getHead(),end(List3.getTail())));
+			//for(auto i: List3)
+			//	cout << i;
+
+
+
+
 		}
-		if(input3.rfind("remove", 0) == 0){
+		else if(input3.rfind("remove", 0) == 0){
 			input3.erase(0,7);
 			int value = 0;
 			istringstream ss(input3);
@@ -230,10 +307,9 @@ List List1, List2;
 				cout << "ERROR!";
 
 			}
-		}
-			
+		}	
 
-		if(input3.rfind("add", 0) == 0){
+		else if(input3.rfind("add", 0) == 0){
 		//invoke on specified set passing index as parameter, print true or false based on result.
 			input3.erase(0,3);
 			int value = 0;
@@ -266,9 +342,7 @@ List List1, List2;
 			}
 		}
 
-
-
-		if(input3 == "subtraction"){
+		else if(input3 == "subtraction"){
 			//input3.erase(0,12);
 			//int value = 0;
 			//istringstream ss(input3);
@@ -304,6 +378,9 @@ List List1, List2;
 			
 			}
 
+			else if(input3 == "clear"){
+				system("clear");
+			}
 		cout << endl;
 	};
 	
